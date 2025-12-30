@@ -146,8 +146,8 @@ LOGIN_REDIRECT_URL = "blog-home"
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'login'
 
-MEDIA_ROOT = str(BASE_DIR / 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
