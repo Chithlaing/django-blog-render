@@ -84,26 +84,23 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#         'OPTIONS': {
-#             'sslmode': 'require',   # 👈 ဒီလိုထည့်ပါ
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 #
 # database_url = os.environ.get("DATABASE_URL")
 # DATABASES['default'] = dj_database_url.parse(database_url)
 
-DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True   # 👈 ဒီလိုထည့်ရမယ်
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         os.environ.get("DATABASE_URL"),
+#         conn_max_age=600,
+#         ssl_require=True   # 👈 ဒီလိုထည့်ရမယ်
+#     )
+# }
 
 # External ID: postgresql://django_blog_render_k2u3_user:Hq1gknDDFspUtqk6lwyaGFzL0Gj2OgTf@dpg-d57nuube5dus73dfjbo0-a.oregon-postgres.render.com/django_blog_render_k2u3
 # Password: Hq1gknDDFspUtqk6lwyaGFzL0Gj2OgTf
