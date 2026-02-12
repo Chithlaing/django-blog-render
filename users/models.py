@@ -1,13 +1,13 @@
+from cloudinary.uploader import upload_image
 from django.db import models
 from django.contrib.auth.models import User
 # from PIL import Image
-# from django.urls import reverse
+from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = CloudinaryField(
-        'image')
+    image = CloudinaryField('image', folder='django_blog', default='django_blog/default_cjqgpp')
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -37,6 +37,6 @@ class Profile(models.Model):
     #         img.save(self.image.path)
     #     super().save()
 
-    # def get_absolute_url(self):
-    #     return reverse('post-detail', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
 
